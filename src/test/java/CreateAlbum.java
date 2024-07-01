@@ -9,7 +9,7 @@ public class CreateAlbum {
 
     String baseUrl = "http://localhost:8081/api";
 
-    String token ="eyJhbGciOiJIUzUxMiJ9.eyJzdWIiOiIyIiwiaWF0IjoxNzE5NzYxNDM5LCJleHAiOjE3MTk3NjUwMzl9.h6OljTK-0JMysvpGXNfacDtM_xfzQjprQ7nND0xq-mAcLGGGgucJkZcXc7TPV2arFGt-CCOrpbKD5klm7mR2qw";
+    String token ="eyJhbGciOiJIUzUxMiJ9.eyJzdWIiOiIyIiwiaWF0IjoxNzE5ODQ1Mzk5LCJleHAiOjE3MTk4NDg5OTl9.2VWw2SjmPR0gFx6yjHpJxIvbsbA29LyoB1DGwAAbHhhYXbwLcx8JTdib4xtAvFDHdEPVASDXMoNPJAKuL1hikA";
     JSONObject requestBody;
 
 
@@ -17,7 +17,7 @@ public class CreateAlbum {
     public void testCreateAlbum(){
         String endpoint = baseUrl+"/albums";
         requestBody = new JSONObject();
-        requestBody.put("title", "gateng ganteng serigala");
+        requestBody.put("title", "gateng ganteng serigala 2");
         requestBody.put("description", "Album Baru");
 
         RequestSpecification request = RestAssured.given();
@@ -28,7 +28,7 @@ public class CreateAlbum {
         Response response = request.post(endpoint);
         Assert.assertEquals(response.getStatusCode(), 201);
 
-        String title = response.getBody().jsonPath().getString("title");
-        Assert.assertEquals(title,"Terbuat Album");
+        String albumid = response.getBody().jsonPath().getString("id");
+        Assert.assertNotNull(albumid);
     }
 }

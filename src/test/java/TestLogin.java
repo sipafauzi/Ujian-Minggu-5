@@ -15,7 +15,7 @@ public class TestLogin {
     public void testLogin(){
         String endpoint = baseUrl+"/auth/signin";
         JSONObject requestBody = new JSONObject();
-        requestBody.put("usernameOrEmail","SipaFauzi");
+        requestBody.put("usernameOrEmail","sipafauzi");
         requestBody.put("password","password");
         System.out.println(requestBody.toJSONString());
 
